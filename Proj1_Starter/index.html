@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+</head>
+<body>
+  <h1>Password Manager</h1>
+  
+  <div>
+    <h3>Set a Password</h3>
+    <label for="service-name">Service Name:</label>
+    <input type="text" id="service-name" placeholder="Enter service name"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password"><br>
+    <button id="set-password">Set Password</button>
+  </div>
+
+  <div>
+    <h3>Get Password</h3>
+    <label for="get-service-name">Service Name:</label>
+    <input type="text" id="get-service-name" placeholder="Enter service name"><br>
+    <button id="get-password">Get Password</button>
+    <p id="retrieved-password">Password will appear here</p>
+  </div>
+
+  <div>
+    <h3>Remove Password</h3>
+    <label for="remove-service-name">Service Name:</label>
+    <input type="text" id="remove-service-name" placeholder="Enter service name"><br>
+    <button id="remove-password">Remove Password</button>
+  </div>
+
+  <script src="keychain.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
