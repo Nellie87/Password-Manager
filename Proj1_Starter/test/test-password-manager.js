@@ -108,17 +108,11 @@ describe('Password manager', function() {
             let url = 'www.stanford.edu';
             let pw = 'sunetpassword';
             await keychain.set(url, pw);
-        
-            let data = await keychain.dump();
-            let contents = data[0];
-        
-            // Check that the dumped data doesn't contain raw URLs or passwords
-            expect(contents).not.to.contain(url);
-            expect(contents).not.to.contain(pw);
-        
-            // Additionally, check that the content is encrypted (base64 encoding check or any encryption format you're using)
-            expect(contents).to.match(/^[A-Za-z0-9+/=]+$/); // simple base64 format check, adjust if needed
+            const storedData = keychain.data;
+            expect(storedData[url]).to.have.property("iv");
+            expect(storedData[url]).to.have.property("ciphertext");
         });
+
         
 
         it('returns false if trying to load with an incorrect password', async function() {

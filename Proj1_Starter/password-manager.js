@@ -20,6 +20,13 @@ class Keychain {
   }
 
   /**
+   * Get the AES master key.
+   */
+  async getMasterKey() {
+    return this.secrets.masterKey;
+  }
+
+  /**
    * Creates an empty keychain with the given password.
    */
   static async init(password) {
@@ -28,7 +35,6 @@ class Keychain {
     return keychain;
   }
 
-  
   /**
    * Loads the keychain state from a serialized representation (repr).
    */
@@ -60,7 +66,6 @@ class Keychain {
   
     return keychain;
   }
-  
 
   /**
    * Returns a JSON serialization of the keychain with a checksum.
@@ -78,28 +83,25 @@ class Keychain {
     const checksum = await this.#calculateChecksum(jsonData);
     return [jsonData, checksum];
   }
-  
-  
 
   /**
    * Fetches the data (as a string) corresponding to the given domain.
    */
-async get(name) {
-  const encryptedData = this.data[name];
-  if (!encryptedData) return null;
+  async get(name) {
+    const encryptedData = this.data[name];
+    if (!encryptedData) return null;
 
-  const iv = decodeBuffer(encryptedData.iv);
-  const ciphertext = decodeBuffer(encryptedData.ciphertext);
+    const iv = decodeBuffer(encryptedData.iv);
+    const ciphertext = decodeBuffer(encryptedData.ciphertext);
 
-  const decryptedBuffer = await subtle.decrypt(
-    { name: "AES-GCM", iv },
-    this.secrets.masterKey,
-    ciphertext
-  );
+    const decryptedBuffer = await subtle.decrypt(
+      { name: "AES-GCM", iv },
+      this.secrets.masterKey,
+      ciphertext
+    );
 
-  return bufferToString(decryptedBuffer); // This should return the decrypted value
-}
-
+    return bufferToString(decryptedBuffer); // This should return the decrypted value
+  }
 
   /**
    * Inserts or updates the domain and associated data.
@@ -118,7 +120,6 @@ async get(name) {
     };
   }
 
-  
   /**
    * Removes the record with the specified name from the keychain.
    */
@@ -130,7 +131,6 @@ async get(name) {
     return false;
   }
 
-  
   /********* Helper Methods *********/
 
   /**
