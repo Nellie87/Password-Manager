@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Manager</h1>
+
+        <!-- Master Password Section -->
+        <div class="section" id="masterPasswordSection">
+            <h2>Load Manager</h2>
+            <input id="masterPassword" type="password" placeholder="Enter master password">
+            <button onclick="loadManager()">Load Manager</button>
+        </div>
+
+        <!-- Action Selection Section (hidden initially) -->
+        <div class="section" id="actionSection" style="display: none;">
+            <h2>Choose Action</h2>
+            <select id="actionDropdown" onchange="selectAction()">
+                <option value="">--Select an action--</option>
+                <option value="add">Add Password</option>
+                <option value="get">Retrieve Password</option>
+                <option value="delete">Delete Password</option>
+            </select>
+        </div>
+
+        <!-- Add Password Section -->
+        <div class="section action" id="addSection" style="display: none;">
+            <h2>Add Password</h2>
+            <input id="service" type="text" placeholder="Service Name">
+            <input id="password" type="password" placeholder="Password">
+            <button onclick="addPassword()">Add Password</button>
+        </div>
+
+        <!-- Retrieve Password Section -->
+        <div class="section action" id="getSection" style="display: none;">
+            <h2>Retrieve Password</h2>
+            <input id="getService" type="text" placeholder="Service Name">
+            <button onclick="getPassword()">Get Password</button>
+        </div>
+
+        <!-- Delete Password Section -->
+        <div class="section action" id="deleteSection" style="display: none;">
+            <h2>Delete Password</h2>
+            <input id="deleteService" type="text" placeholder="Service Name">
+            <button onclick="deletePassword()">Delete Password</button>
+        </div>
+
+        <!-- Output Message Section -->
+        <div id="output"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
