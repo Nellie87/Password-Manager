@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-md mx-auto bg-white rounded-lg shadow-lg">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white text-center py-4 rounded-t-lg">
+            <h1 class="text-xl font-bold">Password Manager</h1>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="p-6">
+            <!-- Form Section Title -->
+            <h2 class="text-lg font-semibold mb-4">Add New Password</h2>
+            
+            <!-- Input Fields -->
+            <form id="password-form">
+                <div class="mb-4">
+                    <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
+                    <input type="text" id="website" placeholder="e.g., example.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" placeholder="Username or Email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" placeholder="Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/>
+                </div>
+                
+                <!-- Button -->
+                <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg shadow-md">
+                    Add Password
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
